@@ -14,6 +14,7 @@ class Ffmpeg < Formula
 
   option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
   option "with-fdk-aac", "Enable the Fraunhofer FDK AAC library"
+  option "with-libaom", "Enable AOMedia video encoder"
   option "with-libass", "Enable ASS/SSA subtitle format"
   option "with-librsvg", "Enable SVG files as inputs via librsvg"
   option "with-libsoxr", "Enable the soxr resample library"
@@ -60,6 +61,7 @@ class Ffmpeg < Formula
   depends_on "freetype" => :optional
   depends_on "frei0r" => :optional
   depends_on "game-music-emu" => :optional
+  depends_on "libaom" => :optional
   depends_on "libass" => :optional
   depends_on "libbluray" => :optional
   depends_on "libbs2b" => :optional
@@ -112,6 +114,7 @@ class Ffmpeg < Formula
     args << "--enable-chromaprint" if build.with? "chromaprint"
     args << "--enable-ffplay" if build.with? "sdl2"
     args << "--enable-frei0r" if build.with? "frei0r"
+    args << "--enable-libaom" if build.with? "libaom"
     args << "--enable-libass" if build.with? "libass"
     args << "--enable-libbluray" if build.with? "libbluray"
     args << "--enable-libbs2b" if build.with? "libbs2b"
